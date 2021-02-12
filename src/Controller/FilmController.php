@@ -69,9 +69,9 @@ class FilmController extends AbstractController
             $manager->persist($film);
             $manager->flush();
 
-            $response->setStatusCode(201, "add classe ok");
+            $response->setStatusCode(201, "add film ok");
         } else {
-            $response->setStatusCode(400, "Erreur add classe");
+            $response->setStatusCode(400, "Erreur add film");
         }
         return $response;
     }
