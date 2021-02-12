@@ -10,8 +10,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FilmController extends AbstractController
 {
+    
     /**
-     * @Route("/films", name="films")
+     * @Route("/", name="films")
      * @param FilmRepository $filmRepository
      * @return Response
      */
