@@ -26,8 +26,9 @@ class FilmController extends AbstractController
 
     /**
      * @Route("/films/{id}", name="single_film")
-     * 
+     *
      * @param Film $film
+     * @return Response
      */
     public function singleFilm(Film $film) {
         
