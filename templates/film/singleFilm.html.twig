@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="card" style="width: 18rem;">
+            <img src="https://picsum.photos/300" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ film.name }}</h5>
+                <p class="card-text">Catégorie : {{ film.categorie.name }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for acteur in film.acteur %}
+                    <li class="list-group-item">{{ acteur.surname }} {{ acteur.name }}</li>
+                {% endfor %}
+            </ul>
+            <div class="card-body">
+                <a href="{{ path('films') }}" class="btn btn-primary">Retour aux films</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Film;
 use App\Repository\FilmRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +21,18 @@ class FilmController extends AbstractController
         
         return $this->render('film/index.html.twig', [
             'films' => $films,
+        ]);
+    }
+
+    /**
+     * @Route("/films/{id}", name="single_film")
+     * 
+     * @param Film $film
+     */
+    public function singleFilm(Film $film) {
+        
+        return $this->render('film/singleFilm.html.twig', [
+           'film' => $film 
         ]);
     }
 }
