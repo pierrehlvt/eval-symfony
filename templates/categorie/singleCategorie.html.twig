@@ -7,5 +7,6 @@
             <li class="list-group-item" aria-current="true"><a href="{{ path('single_film', {'id': film.id}) }}">{{ film.name }}</a></li>
         {% endfor %}
         </ul>
+        <a href="{{ path('categories') }}" class="btn btn-primary">Retour à la liste de catégorie</a>
     </div>
 {% endblock %}

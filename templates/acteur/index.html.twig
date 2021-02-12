@@ -17,6 +17,9 @@
                                 <li class="list-group-item"><a href="{{ path('single_film', { 'id': film.id }) }}">{{ film.name }}</a></li>
                             {% endfor %}
                         </ul>
+                        <div class="card-body">
+                            <a href="{{ path('single_acteur', { 'id': acteur.id }) }}" class="btn btn-primary">Voir plus</a>
+                        </div>
                     </div>
                 </div>
             {% endfor %}

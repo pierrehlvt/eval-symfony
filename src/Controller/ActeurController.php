@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Acteur;
 use App\Repository\ActeurRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +21,19 @@ class ActeurController extends AbstractController
         $acteurs = $acteurRepository->findAll();
         return $this->render('acteur/index.html.twig', [
             'acteurs' => $acteurs,
+        ]);
+    }
+
+    /**
+     * @Route("/acteurs/{id}", name="single_acteur")
+     *
+     * @param Acteur $acteur
+     * @return Response
+     */
+    public function singleActeur(Acteur $acteur) {
+
+        return $this->render('acteur/singleActeur.html.twig', [
+            'acteur' => $acteur
         ]);
     }
 }

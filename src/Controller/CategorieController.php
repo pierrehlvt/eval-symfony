@@ -32,7 +32,7 @@ class CategorieController extends AbstractController
      * @param Categorie $categorie
      * @return Response
      */
-    public function singleFilm(Categorie $categorie) {
+    public function singleCategorie(Categorie $categorie) {
 
         return $this->render('categorie/singleCategorie.html.twig', [
             'categorie' => $categorie
