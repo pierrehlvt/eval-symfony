@@ -1,31 +1,25 @@
 <?php
 
-namespace App\Controller\Security;
+namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-/**
- * Class AuthController
- * @package App\Controller
- * @Route("/api", name="api_security_auth_")
- */
-class AuthController extends AbstractController
+
+class SecurityController extends AbstractController
 {
-
     /**
-     * @Route("/login", name="login", methods={"POST"})
-     * @param AuthenticationUtils $authenticationUtils
+     * @Route("/login_check", name="login_check", methods={"POST"})
      * @return JsonResponse
      */
-    public function login(AuthenticationUtils $authenticationUtils): JsonResponse
+    public function loginCheck(): JsonResponse
     {
+        $user = $this->getUser();
 
-        $error = $authenticationUtils->getLastAuthenticationError();
-        $lastUsername = $authenticationUtils->getLastUsername();
-
-        return new JsonResponse([$lastUsername, $error]);
+        return new JsonResponse([
+            'user' => $user->getUsername(),
+            'roles' => $user->getRoles(),
+        ]);
     }
 }
